@@ -5,7 +5,7 @@ from django.contrib.auth import logout
 from .models import user
 
 # Create your views here.
-@login_required(login_url='login')
+
 def index(request):
     data = user.objects.all()
     uid = request.session.get('uid')
