@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import userform
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .models import user
 
 # Create your views here.
+@login_required(login_url='login')
 def index(request):
     data = user.objects.all()
     uid = request.session.get('uid')
